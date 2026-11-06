@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Breadcrumb, Flag, Placeholder, Tabs } from '../../components/UI.jsx';
 import { Download } from '../../components/Icons.jsx';
 import { BUSINESSES } from '../../data/businesses.js';
+import Seo from '../../seo/Seo.jsx';
+import { breadcrumbs } from '../../seo/schema.js';
 
 const LEVELS = {
   outputs: { t: 'Outputs', blurb: 'What we delivered — activities, sessions and listings. Counts of things done, not changes in people’s lives.', metrics: [
@@ -32,6 +34,7 @@ export default function Impact() {
 
   return (
     <>
+      <Seo title="Impact & Insights" description="How ASSW reports impact: outputs, outcomes and long-term change, each with a reporting period, definition and source. Reports, briefs and SDG alignment." path="/impact" jsonLd={[breadcrumbs([['Home', '/'], ['Impact & Insights', '/impact']])]} />
       <section className="grid-bg" style={{ padding: '72px 0 48px' }}>
         <div className="wrap col g24">
           <Breadcrumb items={[['Home', '/'], ['Impact & Insights']]} />

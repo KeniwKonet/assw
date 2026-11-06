@@ -8,6 +8,8 @@ import { BUSINESSES } from '../../data/businesses.js';
 import { OPPORTUNITIES, oppStatus } from '../../data/opportunities.js';
 import { PROGRAMMES } from '../../data/programmes.js';
 import { SITE, naira } from '../../data/site.js';
+import Seo from '../../seo/Seo.jsx';
+import { organization, website, sccn } from '../../seo/schema.js';
 
 const PIPE = ['Identify', 'Catalogue', 'Assess', 'Develop', 'Prepare', 'Match', 'Connect', 'Track'];
 const METRICS = [
@@ -23,6 +25,7 @@ export default function Home() {
 
   return (
     <>
+      <Seo path="/" jsonLd={[organization(), website(), sccn()]} />
       {/* 1 Hero */}
       <section className="grid-bg" style={{ position: 'relative', overflow: 'hidden', padding: '56px 0 72px' }}>
         <div className="wrap row g32" style={{ alignItems: 'stretch', flexWrap: 'nowrap' }}>

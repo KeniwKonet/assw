@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowUR, Check, Search } from '../components/Icons.jsx';
 import { Sticker } from '../components/Brand.jsx';
 import { Field, Flag, Note, Tabs } from '../components/UI.jsx';
+import Seo from '../seo/Seo.jsx';
 
 const COLORS = [['ASSW Blue', '#044593', 'Primary · links · highlights (from logo)'], ['Blue Deep', '#03346F', 'Hover · dark charts'], ['Sky', '#8EC2FF', 'Accents on dark only'], ['Blue Tint', '#E7EEF8', 'Selected · focus ring'], ['ASSW Crimson', '#BB2344', 'Sparing accent · errors (from logo)'], ['Ink', '#0C1015', 'Text · dark panels'], ['Ink 3', '#20262E', 'Cards on dark'], ['Muted', '#56606E', 'Secondary text'], ['Line', '#E2E6EB', 'Borders · grid'], ['Paper', '#F4F6F8', 'App background']];
 const STATES = ['empty', 'loading', 'success', 'validation', 'error', 'pending', 'closed'];
@@ -11,6 +12,7 @@ export default function StyleGuide() {
   const [st, setSt] = useState('empty');
   return (
     <main id="main" style={{ padding: '64px 0 96px' }}>
+      <Seo title="UI style guide" path="/style-guide" noindex />
       <div className="wrap col g56">
         <div className="row between end g24">
           <div className="col g14"><Link to="/" className="small">← Back to site</Link><span className="kicker">Brand / UI style tile</span><h1 className="d1">ASSW <span className="hl">UI kit</span></h1></div>

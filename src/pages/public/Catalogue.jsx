@@ -5,6 +5,8 @@ import { Breadcrumb, Chips, Note } from '../../components/UI.jsx';
 import { BizCard } from '../../components/Cards.jsx';
 import { BUSINESSES } from '../../data/businesses.js';
 import { CATEGORIES } from '../../data/site.js';
+import Seo from '../../seo/Seo.jsx';
+import { itemList, breadcrumbs } from '../../seo/schema.js';
 
 const PER_PAGE = 6;
 
@@ -37,6 +39,7 @@ export default function Catalogue() {
 
   return (
     <>
+      <Seo title="Student Enterprise Catalogue" description="Discover student-owned businesses across Nigerian institutions. Search by name, product, category, institution or state." path="/catalogue" jsonLd={[itemList('SCCN Student Enterprise Catalogue', BUSINESSES.map((x) => ({ name: x.name, path: '/catalogue/' + x.slug }))), breadcrumbs([['Home', '/'], ['SCCN', '/sccn'], ['Catalogue', '/catalogue']])]} />
       <section className="grid-bg" style={{ padding: '64px 0 40px' }}>
         <div className="wrap col g24">
           <Breadcrumb items={[['Home', '/'], ['SCCN', '/sccn'], ['Catalogue']]} />

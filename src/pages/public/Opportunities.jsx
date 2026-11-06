@@ -6,6 +6,8 @@ import { OppCard } from '../../components/Cards.jsx';
 import { OPPORTUNITIES, OPP_TYPES, oppStatus } from '../../data/opportunities.js';
 import { STAGES } from '../../data/site.js';
 import { recordEnquiry } from '../../lib/store.js';
+import Seo from '../../seo/Seo.jsx';
+import { breadcrumbs } from '../../seo/schema.js';
 
 export default function Opportunities() {
   const [tab, setTab] = useState('open');
@@ -31,6 +33,7 @@ export default function Opportunities() {
 
   return (
     <>
+      <Seo title="Opportunities & Funding for Student Founders" description="Verified grants, competitions, accelerators, training and market-access calls for student ventures in Nigeria, with practical readiness guidance from the SCCN Opportunity Desk." path="/opportunities" jsonLd={[breadcrumbs([['Home', '/'], ['SCCN', '/sccn'], ['Opportunities', '/opportunities']])]} />
       <section className="dark" style={{ padding: '72px 0 64px' }}>
         <div className="wrap col g28">
           <Breadcrumb dark items={[['SCCN', '/sccn'], ['Opportunities & Funding']]} />

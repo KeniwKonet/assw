@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import { ArrowUR } from '../../components/Icons.jsx';
 import { Breadcrumb, Flag, Placeholder } from '../../components/UI.jsx';
 import { AREAS } from '../../data/programmes.js';
+import Seo from '../../seo/Seo.jsx';
+import { breadcrumbs } from '../../seo/schema.js';
 
 export default function WhatWeDo() {
   const [i, setI] = useState(1);
   const cur = AREAS[i];
   return (
     <>
+      <Seo title="What We Do" description="Student welfare, enterprise, employability, leadership and mentorship, financial intelligence, youth development and civic engagement programmes by ASSW Nigeria." path="/what-we-do" jsonLd={[breadcrumbs([['Home', '/'], ['What We Do', '/what-we-do']])]} />
       <section className="grid-bg" style={{ padding: '80px 0 56px' }}>
         <div className="wrap col center g24">
           <Breadcrumb items={[['Home', '/'], ['What We Do']]} />

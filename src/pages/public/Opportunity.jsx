@@ -4,6 +4,8 @@ import { ArrowUR } from '../../components/Icons.jsx';
 import { Breadcrumb, Note } from '../../components/UI.jsx';
 import { getOpportunity, oppStatus, fmtDeadline, fmtDate } from '../../data/opportunities.js';
 import NotFound from './NotFound.jsx';
+import Seo from '../../seo/Seo.jsx';
+import { breadcrumbs } from '../../seo/schema.js';
 
 const ITEMS = [
   ['Institutional status confirmed', 'Proof of current studentship from your institution.'], ['Business formalised', 'CAC registration or the provider’s accepted equivalent.'],
@@ -31,6 +33,7 @@ export default function Opportunity() {
 
   return (
     <>
+      <Seo title={o.title} description={`${closed ? 'Closed: ' : ''}${o.type} from ${o.provider}. Deadline: ${fmtDeadline(o)}. ${o.desc}`.slice(0, 300)} path={'/opportunities/' + o.slug} noindex={closed} jsonLd={[breadcrumbs([['Home', '/'], ['Opportunities', '/opportunities'], [o.title, '/opportunities/' + o.slug]])]} />
       {closed && (
         <div style={{ background: '#EDEFF2', borderBottom: '1px solid var(--line)' }}>
           <div className="wrap row g12" style={{ minHeight: 56 }}><span className="st st-closed">Closed</span><span style={{ fontSize: 14 }}>This call closed on {fmtDeadline(o)}. It is kept for reference — <Link to="/opportunities">see open opportunities</Link>.</span></div>

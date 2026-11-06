@@ -4,6 +4,8 @@ import { Check, Info } from '../../components/Icons.jsx';
 import { Sticker } from '../../components/Brand.jsx';
 import { Placeholder } from '../../components/UI.jsx';
 import { SITE, naira } from '../../data/site.js';
+import Seo from '../../seo/Seo.jsx';
+import { sccn, breadcrumbs } from '../../seo/schema.js';
 
 const STEPS = [
   ['Identify', 'Find student-owned businesses and founders across institutions.'], ['Catalogue', 'Publish approved, consented business profiles.'],
@@ -26,6 +28,7 @@ export default function SCCN() {
   const [open, setOpen] = useState(0);
   return (
     <>
+      <Seo title="SCCN — Students Chamber of Commerce Nigeria" description="SCCN helps student-owned businesses become visible, connected and opportunity-ready through a national catalogue, clinics, mentoring and verified opportunity notices. An ASSW initiative." path="/sccn" jsonLd={[sccn(), breadcrumbs([['Home', '/'], ['SCCN', '/sccn']])]} />
       <section className="dark" style={{ padding: '88px 0 96px', backgroundImage: 'linear-gradient(#171D24 1px, transparent 1px), linear-gradient(90deg, #171D24 1px, transparent 1px)', backgroundSize: '120px 120px', position: 'relative', overflow: 'hidden' }}>
         <div className="wrap col g32" style={{ position: 'relative' }}>
           <div className="row g10"><span className="pill">An ASSW initiative</span><span className="tag tag-d" style={{ cursor: 'default' }}>Students Chamber of Commerce Nigeria</span></div>

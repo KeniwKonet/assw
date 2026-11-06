@@ -4,6 +4,7 @@ import { Sticker } from '../../components/Brand.jsx';
 import { Check, Mail } from '../../components/Icons.jsx';
 import { Field, Note } from '../../components/UI.jsx';
 import { signIn, signUp } from '../../lib/store.js';
+import Seo from '../../seo/Seo.jsx';
 
 const emailOk = (v) => /^\S+@\S+\.\S+$/.test(v);
 
@@ -48,6 +49,7 @@ export default function Auth() {
 
   return (
     <div className="row" style={{ minHeight: '100vh', alignItems: 'stretch' }}>
+      <Seo title="Sign in or join" path="/auth" noindex />
       <div className="dark col between g48" style={{ flex: '1 1 480px', backgroundImage: 'linear-gradient(#171D24 1px, transparent 1px), linear-gradient(90deg, #171D24 1px, transparent 1px)', backgroundSize: '120px 120px', padding: '40px 48px', position: 'relative', overflow: 'hidden' }}>
         <Link to="/" aria-label="ASSW Nigeria home"><img src="/brand/assw-logo-full-white.png" alt="Association for Students’ Social Welfare Nigeria" style={{ height: 110, width: 'auto' }} /></Link>
         <div className="col g20" style={{ maxWidth: 520 }}>

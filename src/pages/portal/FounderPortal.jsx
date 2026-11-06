@@ -7,6 +7,7 @@ import { UserChip } from '../../components/Shells.jsx';
 import { OPPORTUNITIES, oppStatus, fmtDeadline } from '../../data/opportunities.js';
 import { EVENTS } from '../../data/programmes.js';
 import { setPublished, signOut, updateApp, useDraft, useMyApp, useSession } from '../../lib/store.js';
+import Seo from '../../seo/Seo.jsx';
 
 const TABS = [['overview', 'Overview'], ['listing', 'Catalogue listing'], ['opps', 'Opportunities'], ['clinics', 'Clinics & resources'], ['consent', 'Consent & privacy']];
 const fmt = (iso) => (iso ? new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '');
@@ -37,6 +38,7 @@ export default function FounderPortal() {
 
   return (
     <div className="app">
+      <Seo title="Enterprise Portal" path="/portal/enterprise" noindex />
       <nav className="side" aria-label="Enterprise Portal">
         <div style={{ padding: '4px 10px 18px' }}><Brand dark sub="Enterprise" compact /></div>
         {TABS.map(([k, t]) => <button key={k} type="button" className={'nl' + (tab === k ? ' on' : '')} onClick={() => setTab(k)} aria-current={tab === k ? 'page' : undefined} style={{ background: tab === k ? undefined : 'none', border: 0, cursor: 'pointer', textAlign: 'left', font: '500 14px/1 var(--f)', minHeight: 44, padding: '0 14px', borderRadius: 12, color: tab === k ? '#fff' : '#C3CBD6' }}>{t}</button>)}

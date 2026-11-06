@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumb, Flag } from '../../components/UI.jsx';
 import { SITE, naira } from '../../data/site.js';
+import Seo from '../../seo/Seo.jsx';
+import { breadcrumbs } from '../../seo/schema.js';
 
 const ROWS = [
   ['Community access & networking', '✓', '✓', '✓'], ['Programme & event updates', '✓', '✓', '✓'], ['Learning resources & guides', '✓', '✓', '✓'], ['Public opportunity notices', '✓', '✓', '✓'],
@@ -16,6 +18,7 @@ export default function Membership() {
     : { t: 'General member', d: 'Join free, learn through resources and clinics, and upgrade to enterprise membership when your business is up and running.', cta: 'Join ASSW', to: '/auth?mode=join' };
   return (
     <>
+      <Seo title="Membership" description="Free general membership for students and young people, and optional SCCN enterprise membership for student business owners. Compare what each includes." path="/membership" jsonLd={[breadcrumbs([['Home', '/'], ['SCCN', '/sccn'], ['Membership', '/membership']])]} />
       <section className="grid-bg" style={{ padding: '72px 0 48px' }}>
         <div className="wrap col center g20">
           <Breadcrumb items={[['SCCN', '/sccn'], ['Membership']]} />

@@ -5,6 +5,8 @@ import { Breadcrumb, Field, Placeholder, useToast } from '../../components/UI.js
 import { getBusiness } from '../../data/businesses.js';
 import { recordEnquiry } from '../../lib/store.js';
 import NotFound from './NotFound.jsx';
+import Seo from '../../seo/Seo.jsx';
+import { localBusiness, breadcrumbs } from '../../seo/schema.js';
 
 const emailOk = (v) => /^\S+@\S+\.\S+$/.test(v);
 
@@ -29,6 +31,7 @@ export default function Business() {
 
   return (
     <>
+      <Seo title={`${b.name} — ${b.cat} in ${b.city === b.state ? b.city + ' State' : b.city + ', ' + b.state}`} description={`${b.desc} Student-owned business from ${b.inst}, listed in the SCCN Student Enterprise Catalogue.`} path={'/catalogue/' + b.slug} type="profile" jsonLd={[localBusiness(b), breadcrumbs([['Home', '/'], ['Catalogue', '/catalogue'], [b.name, '/catalogue/' + b.slug]])]} />
       {toast}
       <section style={{ padding: '32px 0 0' }}>
         <div className="wrap col g20">

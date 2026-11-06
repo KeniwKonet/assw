@@ -5,6 +5,7 @@ import { Field } from '../../components/UI.jsx';
 import { EVENTS, NEWS } from '../../data/programmes.js';
 import { STATES } from '../../data/site.js';
 import { useSession } from '../../lib/store.js';
+import Seo from '../../seo/Seo.jsx';
 
 function load(email) { try { return JSON.parse(localStorage.getItem('assw-profile-' + email)) || null; } catch { return null; } }
 
@@ -19,6 +20,7 @@ export default function MemberPortal() {
 
   return (
     <div style={{ background: 'var(--paper)', minHeight: '100vh' }}>
+      <Seo title="Member Portal" path="/portal/member" noindex />
       <FlowHeader title="Member Portal" right={<><nav className="nav hide-sm" aria-label="Member" style={{ gap: 22 }}><Link to="/programmes">Programmes</Link><Link to="/news">Resources</Link><Link to="/opportunities">Opportunities</Link></nav><UserChip /></>} />
       <main id="main" className="wrap col g24" style={{ paddingTop: 32, paddingBottom: 64 }}>
         <div className="panel-d row between g24" style={{ padding: 40 }}>

@@ -4,6 +4,8 @@ import { ArrowUR, Check } from '../../components/Icons.jsx';
 import { Breadcrumb, Field, Note } from '../../components/UI.jsx';
 import { STATES } from '../../data/site.js';
 import { recordEnquiry } from '../../lib/store.js';
+import Seo from '../../seo/Seo.jsx';
+import { breadcrumbs } from '../../seo/schema.js';
 
 const ROUTES = [
   { k: 'student', t: 'Join as a student', d: 'Free general membership — community, learning and updates.', kicker: 'Students', h: 'Join the ASSW community', p: 'Create a free account to join. If you run a business, you can also register it with SCCN.', kind: 'student' },
@@ -43,6 +45,7 @@ export default function GetInvolved() {
 
   return (
     <>
+      <Seo title="Get Involved — Partner, Mentor or Volunteer" description="Join ASSW as a student, become a mentor or volunteer, or partner with us as an institution, company or funder to widen access to opportunity for Nigerian students." path="/get-involved" jsonLd={[breadcrumbs([['Home', '/'], ['Get Involved', '/get-involved']])]} />
       <section className="grid-bg" style={{ padding: '72px 0 48px' }}>
         <div className="wrap col g24">
           <Breadcrumb items={[['Home', '/'], ['Get Involved']]} />

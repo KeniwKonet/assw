@@ -5,6 +5,7 @@ import { Flag, Note } from '../../components/UI.jsx';
 import { FlowHeader } from '../../components/Shells.jsx';
 import { SITE, naira } from '../../data/site.js';
 import { confirmPayment, startPayment, useApps, useMyApp } from '../../lib/store.js';
+import Seo from '../../seo/Seo.jsx';
 
 export default function Payment() {
   const [params] = useSearchParams();
@@ -30,6 +31,7 @@ export default function Payment() {
 
   return (
     <div style={{ background: 'var(--paper)', minHeight: '100vh' }}>
+      <Seo title="Secure payment" path="/payment" noindex />
       <FlowHeader title="Secure payment" right={<Link className="btn btn-line btn-sm" to="/portal/enterprise">Back to portal</Link>} />
       <div className="wrap layout-side" style={{ gap: 28, paddingTop: 40, paddingBottom: 64 }}>
         <main id="main" className="content" aria-live="polite">

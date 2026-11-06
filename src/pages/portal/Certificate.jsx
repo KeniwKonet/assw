@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Sparkle } from '../../components/Icons.jsx';
 import { verifyNumber, useApps } from '../../lib/store.js';
 import { SITE } from '../../data/site.js';
+import Seo from '../../seo/Seo.jsx';
 
 export default function Certificate() {
   const { no } = useParams();
@@ -18,6 +19,7 @@ export default function Certificate() {
 
   return (
     <div style={{ background: 'var(--paper)', minHeight: '100vh', padding: '32px 16px' }}>
+      <Seo title={'Certificate ' + no} noindex />
       <style>{'@media print{.no-print{display:none!important}body{background:#fff}@page{size:A4 landscape;margin:0}.cert-wrap{padding:0!important}}'}</style>
       <div className="no-print row between g12" style={{ maxWidth: 1123, margin: '0 auto 20px' }}>
         <Link to="/portal/enterprise" className="btn btn-line btn-sm">← Back to portal</Link>

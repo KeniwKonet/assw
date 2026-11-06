@@ -1,6 +1,7 @@
 import { Link, Navigate, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Brand, Mark } from './Brand.jsx';
 import { signOut, useApps, useSession } from '../lib/store.js';
+import Seo from '../seo/Seo.jsx';
 
 /** Slim top bar for focused flows (application, payment, member portal). */
 export function FlowHeader({ title, right }) {
@@ -30,6 +31,7 @@ export function AdminShell({ role = 'SCCN Programme Administrator', children }) 
   if (!session || session.role !== 'admin') return <Navigate to="/auth?next=admin" replace />;
   return (
     <div className="app">
+      <Seo title="Admin" noindex />
       <nav className="side" aria-label="Admin">
         <div style={{ padding: '4px 10px 6px' }}><Brand dark sub="Admin" to="/admin" compact /></div>
         <span style={{ color: '#7F8996', fontSize: 12, padding: '0 10px 6px' }}>{role} · MFA on</span>

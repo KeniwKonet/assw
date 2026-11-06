@@ -3,6 +3,8 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { Breadcrumb, Field, Flag, Placeholder } from '../../components/UI.jsx';
 import { SITE } from '../../data/site.js';
 import { recordEnquiry } from '../../lib/store.js';
+import Seo from '../../seo/Seo.jsx';
+import { organization, breadcrumbs } from '../../seo/schema.js';
 
 const TYPES = [
   { k: 'general', t: 'General enquiry', h: 'General enquiry', p: 'Questions about ASSW, SCCN, programmes or membership.', after: 'We aim to reply within [X] working days.' },
@@ -26,6 +28,7 @@ export default function Contact() {
 
   return (
     <>
+      <Seo title="Contact us" description="Contact ASSW Nigeria — No. 1 Zambezi Crescent, Maitama, Abuja · asswnigeria@gmail.com. General enquiries, partnerships, complaints, listing reports and data rights requests." path="/contact" jsonLd={[organization(), breadcrumbs([['Home', '/'], ['Contact', '/contact']])]} />
       <section className="grid-bg" style={{ padding: '72px 0 48px' }}>
         <div className="wrap col g24"><Breadcrumb items={[['Home', '/'], ['Contact']]} /><h1 className="d1">Let’s <span className="hl">talk.</span></h1></div>
       </section>

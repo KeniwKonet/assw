@@ -3,6 +3,8 @@ import { ArrowUR } from '../../components/Icons.jsx';
 import { Breadcrumb, Placeholder } from '../../components/UI.jsx';
 import { NEWS } from '../../data/programmes.js';
 import { SITE } from '../../data/site.js';
+import Seo from '../../seo/Seo.jsx';
+import { breadcrumbs } from '../../seo/schema.js';
 
 const T = [['All', 'All'], ['News', 'News'], ['Event', 'Events'], ['Guide', 'Guides & toolkits'], ['Opportunity notice', 'Opportunity notices'], ['Media', 'Media / press']];
 
@@ -12,6 +14,7 @@ export default function News() {
   const items = NEWS.filter((n) => cur === 'All' || n.type === cur);
   return (
     <>
+      <Seo title="News & Resources" description="News, events, guides and toolkits for student founders, opportunity notices and media resources from ASSW Nigeria and SCCN." path="/news" jsonLd={[breadcrumbs([['Home', '/'], ['News & Resources', '/news']])]} />
       <section className="grid-bg" style={{ padding: '72px 0 40px' }}>
         <div className="wrap col g24">
           <Breadcrumb items={[['Home', '/'], ['News & Resources']]} />

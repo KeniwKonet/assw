@@ -13,7 +13,24 @@ npm run build    # production build in dist/
 npm run preview  # serve the build
 ```
 
-Deploys as a static SPA. `vercel.json` (Vercel) and `public/_redirects` (Netlify) route every path to `index.html`.
+`npm run build` does three things: the client build, a server build of `src/entry-server.jsx`, and `scripts/prerender.mjs`, which writes every public page as static HTML plus `sitemap.xml`, `robots.txt` and `404.html`. Client-only routes (portal, admin) fall back to `app.html` (`vercel.json` for Vercel, `public/_redirects` for Netlify).
+
+## SEO
+
+Set the production domain before building (copy `.env.example` to `.env`):
+
+```bash
+VITE_SITE_URL=https://your-official-domain
+```
+
+- **Prerendered pages:** search engines and link previews (WhatsApp, Facebook, LinkedIn) get full HTML for every public page, including each catalogue business and opportunity.
+- **Per-page tags:** the `<Seo>` component (`src/seo/Seo.jsx`) sets title, description, canonical, Open Graph and Twitter tags. The same tags are written at build time and updated in the browser on navigation.
+- **Structured data:** `src/seo/schema.js` provides NGO (ASSW), Organization (SCCN), WebSite with catalogue search, BreadcrumbList, LocalBusiness for each catalogue listing, ItemList for the catalogue and Event for upcoming events.
+- **Kept out of search:** portal, admin, application, payment and certificate pages are `noindex`, disallowed in `robots.txt` and sent with an `X-Robots-Tag` header on Vercel. Closed opportunities and draft policy pages are `noindex` too.
+- **Sitemap:** generated from the routes and data at build time, so new businesses and opportunities appear automatically.
+- **Share image:** `public/brand/og-default.png` (1200×630). Web app manifest: `public/site.webmanifest`.
+
+After launch: verify the domain in Google Search Console (using an ASSW-owned account), submit `/sitemap.xml`, and add the confirmed social profile URLs as `sameAs` in `organization()` in `src/seo/schema.js`.
 
 ## Demo logins (mock data layer)
 

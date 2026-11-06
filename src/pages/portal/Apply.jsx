@@ -5,6 +5,7 @@ import { Field, Note } from '../../components/UI.jsx';
 import { FlowHeader } from '../../components/Shells.jsx';
 import { CATEGORIES, INTERESTS, NEEDS, STAGES, STATES, SITE } from '../../data/site.js';
 import { saveDraft, submitApplication, useDraft, useSession } from '../../lib/store.js';
+import Seo from '../../seo/Seo.jsx';
 
 const STEPS = [
   ['Applicant', 'About you', 'We use this to confirm eligibility. Contact details stay private.'],
@@ -98,6 +99,7 @@ export default function Apply() {
 
   return (
     <div style={{ background: 'var(--paper)', minHeight: '100vh' }}>
+      <Seo title="Enterprise application" path="/apply" noindex />
       <FlowHeader title="SCCN enterprise application" right={<>
         <span className="small row g6" aria-live="polite">{savedAt && <><Check size={14} color="var(--ok)" />Draft saved</>}</span>
         <Link className="btn btn-line btn-sm" to="/portal/enterprise">Save &amp; exit</Link>

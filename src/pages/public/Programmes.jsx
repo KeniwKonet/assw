@@ -4,6 +4,8 @@ import { Breadcrumb, Field, Flag, Note, Placeholder, Tabs } from '../../componen
 import { PROGRAMMES, EVENTS } from '../../data/programmes.js';
 import { STATES } from '../../data/site.js';
 import { recordEnquiry } from '../../lib/store.js';
+import Seo from '../../seo/Seo.jsx';
+import { breadcrumbs, events } from '../../seo/schema.js';
 
 const pillBg = (s) => (s === 'Active' ? 'var(--ok)' : s === 'Launching' ? 'var(--blue)' : 'var(--muted)');
 
@@ -21,6 +23,7 @@ export default function Programmes() {
 
   return (
     <>
+      <Seo title="Programmes & Events" description="Current ASSW programmes, SCCN business clinics and upcoming events for students and young founders across Nigeria." path="/programmes" jsonLd={[breadcrumbs([['Home', '/'], ['Programmes', '/programmes']]), ...events(EVENTS.filter((e) => e.status !== 'Past'))]} />
       <section className="grid-bg" style={{ padding: '72px 0 40px' }}>
         <div className="wrap col g24">
           <Breadcrumb items={[['Home', '/'], ['Programmes']]} />

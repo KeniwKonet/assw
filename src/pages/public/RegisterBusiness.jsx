@@ -3,6 +3,8 @@ import { ArrowRight, Check, Sparkle } from '../../components/Icons.jsx';
 import { Breadcrumb, Flag, Note, Placeholder } from '../../components/UI.jsx';
 import { SITE, naira } from '../../data/site.js';
 import { useDraft, useSession } from '../../lib/store.js';
+import Seo from '../../seo/Seo.jsx';
+import { breadcrumbs } from '../../seo/schema.js';
 
 const PROCESS = [['Create account', 'Sign up and verify your email.'], ['Apply', 'Tell us about you and your business. Save and resume.'], ['Contribute', 'Pay securely. Your receipt is emailed.'], ['Review', 'SCCN checks completeness, duplicates and consent.'], ['Get your number', 'Approved members receive an SCCN number and certificate.'], ['Go live', 'Preview your listing and confirm publication.']];
 const BENEFITS = ['Catalogue profile', 'Enterprise membership certificate', 'Unique SCCN membership number', 'Structured business profile', 'Relevant enterprise information', 'Access to clinics and resources', 'Opportunity notices & eligibility guidance', 'Potential mentor and partner introductions', 'Consideration for selected showcases'];
@@ -14,6 +16,7 @@ export default function RegisterBusiness() {
   const start = session ? '/apply' : '/auth?mode=join&path=founder';
   return (
     <>
+      <Seo title="Register Your Business" description="Put your student business on the map. Join the SCCN Student Enterprise Catalogue and get a membership number, certificate, clinics and opportunity guidance." path="/register-business" jsonLd={[breadcrumbs([['Home', '/'], ['SCCN', '/sccn'], ['Register Your Business', '/register-business']])]} />
       <section className="grid-bg" style={{ padding: '72px 0 80px', overflow: 'hidden' }}>
         <div className="wrap ag" style={{ '--min': '520px', '--gap': '48px', alignItems: 'center' }}>
           <div className="col g24">

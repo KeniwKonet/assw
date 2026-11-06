@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Check, Doc } from '../../components/Icons.jsx';
 import { Breadcrumb, Flag, Note, Placeholder } from '../../components/UI.jsx';
+import Seo from '../../seo/Seo.jsx';
+import { breadcrumbs } from '../../seo/schema.js';
 
 const MILESTONES = [
   ['2017', 'ASSW begins work at Adeyemi College of Education, Ondo.', true],
@@ -17,6 +19,7 @@ const DOCS = [['Annual report [Year]', 'Approved outputs & outcomes'], ['Metrics
 export default function About() {
   return (
     <>
+      <Seo title="About ASSW" description="The story, mission, values, leadership and accountability of the Association for Students’ Social Welfare Nigeria — supporting students since 2017." path="/about" jsonLd={[breadcrumbs([['Home', '/'], ['About ASSW', '/about']])]} />
       <section className="grid-bg" style={{ padding: '80px 0 64px' }}>
         <div className="wrap col g28">
           <Breadcrumb items={[['Home', '/'], ['About ASSW']]} />
